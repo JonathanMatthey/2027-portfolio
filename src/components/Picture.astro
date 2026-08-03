@@ -12,7 +12,7 @@ const avifSrc = src.replace(/\.(webp|jpe?g|png)$/i, ".avif");
 
 <picture class="picture">
   <source srcset={avifSrc} type="image/avif" />
-  <img class={className} src={src} alt={alt} loading={loading ?? undefined} />
+  <img class={className} src={src} alt={alt} loading={loading ?? undefined} decoding="async" />
 </picture>
 
 <style>

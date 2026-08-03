@@ -49,7 +49,12 @@ const getStackIndex = (index: number) =>
             aria-label={project.title}
             data-project-image={project.slug}
           >
-            <Picture class="project-image" src={project.homepageImage ?? project.image} alt={project.alt} />
+            <Picture
+              class="project-image"
+              src={project.homepageImage ?? project.image}
+              alt={project.alt}
+              loading={index < 3 ? "eager" : "lazy"}
+            />
           </a>
 
           {project.slug === "artists-in-studio" && (
@@ -86,6 +91,16 @@ const getStackIndex = (index: number) =>
   <script>
     const projectInfos = document.querySelectorAll<HTMLElement>(".project-infos");
     const projectImages = document.querySelectorAll<HTMLImageElement>(".project-image");
+
+    projectImages.forEach((image) => {
+      const markLoaded = () => image.classList.add("project-image-loaded");
+
+      if (image.complete && image.naturalWidth > 0) {
+        markLoaded();
+      } else {
+        image.addEventListener("load", markLoaded, { once: true });
+      }
+    });
 
     projectInfos.forEach((projectInfo, index) => {
       const image = projectImages[index];

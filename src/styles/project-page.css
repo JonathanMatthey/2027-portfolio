@@ -95,13 +95,14 @@
   grid-row: 1;
   align-self: start;
   width: auto;
-  background-color: var(--clr-bg);
+  background-color: var(--clr-gallery-bg);
 }
 
 .project-image-wrapper {
   flex: 1 0 auto;
   max-height: 100vh;
   overflow: hidden;
+  background-color: var(--clr-gallery-bg);
 }
 
 .project-image {
@@ -152,6 +153,7 @@
 
 .project-wide-image-wrapper {
   overflow: hidden;
+  background-color: var(--clr-gallery-bg);
 }
 
 .project-wide-image {
@@ -228,6 +230,7 @@
 
 .project-image-row-wrapper {
   overflow: hidden;
+  background-color: var(--clr-gallery-bg);
 }
 
 .project-image-row-image {
