@@ -1,0 +1,117 @@
+---
+import Layout from "./Layout.astro";
+import InfoMenu from "../components/InfoMenu.astro";
+import Picture from "../components/Picture.astro";
+import ProjectCategories from "../components/ProjectCategories.astro";
+import ProjectVideoModal from "../components/ProjectVideoModal.astro";
+import SiteHeader from "../components/SiteHeader.astro";
+import { projects, type Project } from "../data/projects";
+import "../styles/project-page.css";
+
+interface Props {
+  project: Project;
+  topVideoEmbedUrl?: string;
+  textTight?: boolean;
+}
+
+const { project, topVideoEmbedUrl = "", textTight = false } = Astro.props;
+const currentIndex = projects.findIndex((item) => item.slug === project.slug);
+const prevProject = projects[(currentIndex - 1 + projects.length) % projects.length];
+const nextProject = projects[(currentIndex + 1) % projects.length];
+const projectDate = project.year.includes("-") ? project.year.replace("-", " — ") : project.year;
+const projectDetails = project.details ?? {
+  location: ["Project location", "Street address 00,", "City, Country"],
+  credit: "Selected work",
+  description: [
+    `The project ${project.title} is a placeholder text area for production notes, collaborators, context, and a short statement. ` +
+      "This space can hold a longer description in the same rhythm as the reference page: direct, spacious, and text-led, with the image column remaining available for the work itself.",
+  ],
+};
+---
+
+<Layout title={`${project.title} - Jonathan Matthey`}>
+  <main class="project-page">
+    <div class="project-column-left">
+      <SiteHeader />
+
+      <section class="project-infos">
+        <div class="project-meta">
+          <div class="project-year">{project.year}</div>
+          <h2 class="project-title">{project.title}</h2>
+          <ProjectCategories categories={project.categories} />
+        </div>
+
+        <div class:list={["project-text", { "project-text-tight": textTight }]}>
+          <p>{projectDetails.date ?? projectDate}</p>
+
+          {
+            !!projectDetails.location?.length && (
+              <p>
+                {projectDetails.location.map((line, index) => (
+                  <>
+                    {index > 0 && <br />}
+                    {line}
+                  </>
+                ))}
+              </p>
+            )
+          }
+
+          {projectDetails.description.map((paragraph) => (
+            <p class="project-description">{paragraph}</p>
+          ))}
+        </div>
+      </section>
+    </div>
+
+    <section class="project-media">
+      {
+        topVideoEmbedUrl ? (
+          <div class="project-video-wrapper">
+            <iframe
+              class="project-video"
+              src={topVideoEmbedUrl}
+              title={`${project.title} video`}
+              allow="autoplay; fullscreen; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+            <button class="project-video-open" type="button" aria-label="Open video fullscreen">
+              ↗
+            </button>
+          </div>
+        ) : (
+          <figure class="project-image-wrapper">
+            <Picture class="project-image" src={project.image} alt={project.alt} loading={null} />
+          </figure>
+        )
+      }
+    </section>
+
+    <slot />
+
+    <section class="project-prev-wrapper">
+      <a
+        class="project-prev"
+        href={`/${prevProject.slug}`}
+        aria-label={`Previous project: ${prevProject.title}`}
+      >
+        <span aria-hidden="true">←</span>
+        <strong>{prevProject.title}</strong>
+      </a>
+    </section>
+
+    <section class="project-next-wrapper">
+      <a
+        class="project-next"
+        href={`/${nextProject.slug}`}
+        aria-label={`Next project: ${nextProject.title}`}
+      >
+        <strong>{nextProject.title}</strong>
+        <span aria-hidden="true">→</span>
+      </a>
+    </section>
+
+    {topVideoEmbedUrl && <ProjectVideoModal embedUrl={topVideoEmbedUrl} title={project.title} />}
+  </main>
+  <InfoMenu />
+</Layout>
