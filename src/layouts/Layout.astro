@@ -1,0 +1,211 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const {
+  title,
+  description = "Jonathan Matthey is a film photographer and director based in Barcelona.",
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="keywords" content="Jonathan Matthey, Photographer, Film, Director, Barcelona" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Jonathan Matthey" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KQ7S7B8K5T"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-KQ7S7B8K5T");
+    </script>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  @font-face {
+    font-family: "Suisse Intl";
+    font-style: normal;
+    font-weight: 400;
+    src: url("/fonts/SuisseIntl-Regular.woff2") format("woff2");
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Suisse Intl";
+    font-style: normal;
+    font-weight: 300;
+    src: url("/fonts/SuisseIntl-Light.woff2") format("woff2");
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Suisse Intl";
+    font-style: normal;
+    font-weight: 500;
+    src: url("/fonts/SuisseIntl-Medium.woff2") format("woff2");
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Suisse Intl";
+    font-style: normal;
+    font-weight: 600;
+    src: url("/fonts/SuisseIntl-SemiBold.woff2") format("woff2");
+    font-display: swap;
+  }
+
+  :root {
+    --clr-bg: white;
+    --clr-text: rgb(30 30 30);
+    --clr-text-light: rgb(125 125 125);
+    --clr-lines: rgb(200 200 200);
+    --clr-bg-hover: rgb(246 246 246);
+    --clr-gallery-bg: #333;
+    --spacer: 0.375rem;
+    --section-padding-top: 0.9rem;
+    --project-row-padding-bottom: 0.05rem;
+    --project-stack-offset: 52px;
+    --project-row-columns: 1fr 5fr 2fr;
+    --site-heading-size: clamp(1.35rem, 2.8vw, 2rem);
+    --site-header-padding: calc(var(--spacer) * 1.35) var(--spacer) var(--spacer);
+    --font-size-l: 3rem;
+    --font-size-l-lh: 0.9;
+    --font-size-m: 1.5rem;
+    --font-size-m-lh: 1.1;
+    --font-size-s: 1rem;
+    --font-size-s-lh: 1.1;
+  }
+
+  html {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    overscroll-behavior: none;
+    scrollbar-gutter: stable;
+    background: var(--clr-bg);
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
+
+  body,
+  h1,
+  h2,
+  h3,
+  p,
+  ul,
+  figure {
+    margin: 0;
+    padding: 0;
+    font-size: inherit;
+    font-weight: inherit;
+  }
+
+  body {
+    min-height: 100vh;
+    font-family: "Suisse Intl", "Helvetica Neue", Arial, sans-serif;
+    font-size: var(--font-size-s);
+    line-height: var(--font-size-s-lh);
+    font-weight: 400;
+    color: var(--clr-text);
+    background-color: var(--clr-bg);
+  }
+
+  strong {
+    font-weight: 600;
+  }
+
+  em {
+    font-style: italic;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  a {
+    color: inherit;
+    text-underline-offset: 0.16em;
+    text-decoration-thickness: 1px;
+    text-decoration-skip-ink: none;
+  }
+
+  a:hover {
+    color: var(--clr-text);
+    background-color: var(--clr-lines);
+  }
+
+  button {
+    all: unset;
+    cursor: pointer;
+  }
+
+  address {
+    font-style: normal;
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    object-fit: contain;
+    object-position: top center;
+  }
+
+  ::selection {
+    color: var(--clr-bg);
+    background: var(--clr-lines);
+  }
+
+  @media (max-width: 1200px) {
+    :root {
+      --font-size-l: 2.5rem;
+    }
+  }
+
+  @media (max-width: 960px) {
+    :root {
+      --font-size-l: 2rem;
+    }
+  }
+
+  @media (max-width: 720px) {
+    :root {
+      --font-size-l: 2rem;
+      --font-size-m: 1rem;
+      --font-size-s: 0.75rem;
+    }
+  }
+
+  @media (max-width: 420px) {
+    :root {
+      --font-size-l: 1.75rem;
+    }
+  }
+</style>
