@@ -88,7 +88,7 @@ const projectDetails = project.details ?? {
 
     <slot />
 
-    <section class="project-prev-wrapper">
+    <nav class="project-nav">
       <a
         class="project-prev"
         href={`/${prevProject.slug}`}
@@ -97,9 +97,6 @@ const projectDetails = project.details ?? {
         <span aria-hidden="true">←</span>
         <strong>{prevProject.title}</strong>
       </a>
-    </section>
-
-    <section class="project-next-wrapper">
       <a
         class="project-next"
         href={`/${nextProject.slug}`}
@@ -108,7 +105,7 @@ const projectDetails = project.details ?? {
         <strong>{nextProject.title}</strong>
         <span aria-hidden="true">→</span>
       </a>
-    </section>
+    </nav>
 
     {topVideoEmbedUrl && <ProjectVideoModal embedUrl={topVideoEmbedUrl} title={project.title} />}
   </main>

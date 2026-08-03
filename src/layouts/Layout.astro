@@ -123,6 +123,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     overscroll-behavior: none;
     scrollbar-gutter: stable;
     background: var(--clr-bg);
+    overflow-x: clip;
   }
 
   @media (hover: none) {
@@ -154,6 +155,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   body {
     min-height: 100vh;
     min-height: 100dvh;
+    overflow-x: clip;
     font-family: "Suisse Intl", "Helvetica Neue", Arial, sans-serif;
     font-size: var(--font-size-s);
     line-height: var(--font-size-s-lh);

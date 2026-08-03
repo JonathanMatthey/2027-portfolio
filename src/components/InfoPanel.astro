@@ -83,12 +83,16 @@ import Picture from "./Picture.astro";
     overflow-x: hidden;
     border-right: 1px solid var(--clr-lines);
     background-color: var(--clr-bg);
-    transform: translate(-110vw, 0);
-    transition: transform 250ms ease-out;
+    transform: translate3d(-100%, 0, 0);
+    visibility: hidden;
+    pointer-events: none;
+    transition: transform 250ms ease-out, visibility 250ms ease-out;
   }
 
   .info-show {
-    transform: translate(0, 0);
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
+    pointer-events: auto;
   }
 
   .info h3 {
@@ -179,8 +183,9 @@ import Picture from "./Picture.astro";
 
   @media (max-width: 720px) {
     .info {
-      right: 0;
-      width: 100vw;
+      width: 100%;
+      max-width: 100%;
+      border-right: 0;
     }
 
     .info-about-text {
