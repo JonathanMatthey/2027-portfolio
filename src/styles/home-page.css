@@ -110,6 +110,7 @@
   pointer-events: none;
   padding: var(--section-padding-top) var(--spacer) var(--project-row-padding-bottom);
   border-top: 1px solid var(--clr-lines);
+  font-size: 0.85rem;
   transition: color 180ms ease-out;
 }
 
@@ -284,6 +285,10 @@
   .project-year {
     font-size: 0.7rem;
     align-self: center;
+  }
+
+  .project-categories {
+    font-size: 0.7rem;
   }
 
   .project-title {

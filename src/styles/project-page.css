@@ -47,6 +47,7 @@
 .project-categories {
   padding: var(--section-padding-top) var(--spacer) var(--project-row-padding-bottom);
   border-top: 1px solid var(--clr-lines);
+  font-size: 0.85rem;
 }
 
 .project-year {
@@ -514,6 +515,10 @@
   .project-categories {
     padding-top: calc(var(--spacer) * 2.25);
     padding-bottom: 0;
+  }
+
+  .project-categories {
+    font-size: 0.7rem;
   }
 
   .project-text {
