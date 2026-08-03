@@ -4,28 +4,26 @@ import Picture from "./Picture.astro";
 
 <aside class="info" id="info-panel" aria-hidden="true">
   <section class="info-entry info-about">
-    <div class="info-about-wrapper">
-      <div class="info-about-text">
-        <p>
-          Jonathan works across photography, film, and performance, with a
-          focus on the human form and black-and-white portraiture.
-        </p>
-        <p> His work is minimal, direct, grounded in
-          authenticity.
-        </p>
-        <p>
-
-          He is currently developing an exhibition on Barcelona's
-          chatarreros.
-          Working with both digital and analog processes, across Paris, Berlin, and
-          the US.
-        </p>
-      </div>
+    <div class="info-about-text">
       <Picture
         class="info-avatar"
         src="/img/projects/jonathan-matthey-avatar.webp"
         alt="Jonathan Matthey"
       />
+      <p>
+        Jonathan works across photography, film, and performance, with a
+        focus on the human form and black-and-white portraiture.
+      </p>
+      <p> His work is minimal, direct, grounded in
+        authenticity.
+      </p>
+      <p>
+
+        He is currently developing an exhibition on Barcelona's
+        chatarreros.
+        Working with both digital and analog processes, across Paris, Berlin, and
+        the US.
+      </p>
     </div>
   </section>
 
@@ -116,15 +114,17 @@ import Picture from "./Picture.astro";
     margin-top: 1em;
   }
 
-  .info-about-wrapper {
+  .info-about-text {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) clamp(5rem, 8vw, 7rem);
-    gap: calc(var(--spacer) * 2);
+    grid-template-columns: minmax(0, 1fr) clamp(9rem, 16vw, 13rem);
+    gap: 0 calc(var(--spacer) * 3);
     align-items: start;
   }
 
-  .info-avatar {
+  :global(.info-avatar) {
     display: block;
+    grid-column: 2;
+    grid-row: 1 / span 3;
     width: 100%;
     aspect-ratio: 1;
     object-fit: cover;
@@ -184,18 +184,20 @@ import Picture from "./Picture.astro";
     }
 
     .info-about-text {
+      display: block;
       font-size: 0.95rem;
     }
 
-    .info-about-wrapper {
-      grid-template-columns: 1fr;
-      gap: 0.55rem;
+    .info-about p + p {
+      clear: both;
     }
 
-    .info-avatar {
-      width: 24vw;
-      height: 24vw;
-      margin: 0;
+    :global(.info-avatar) {
+      grid-column: auto;
+      grid-row: auto;
+      float: right;
+      width: clamp(4rem, 18vw, 5.5rem);
+      margin-left: calc(var(--spacer) * 2);
     }
 
     .info-wrapper {
