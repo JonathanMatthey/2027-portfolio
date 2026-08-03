@@ -11,12 +11,11 @@ export interface Project {
     date?: string;
     location?: string[];
     locationUrl?: string;
-    credit: string;
     description: string[];
   };
 }
 
-export const projects: Project[] = [
+export const projects = [
   {
     year: "2026 - 2027",
     title: "Sync",
@@ -73,7 +72,6 @@ export const projects: Project[] = [
     alt: "Jonathan Matthey - On The Mat, 2025",
     details: {
       location: ["Aranha Jiujitsu Gym", "Barcelona"],
-      credit: "Selected work",
       description: [
         "No performance. No posing.\nBodies testing limits.\nThe silence after training\nafter it's been stripped.",
       ],
@@ -105,7 +103,6 @@ export const projects: Project[] = [
     alt: "Jonathan Matthey - Hijo De Su Padre, 2022",
     details: {
       location: ["Sierra Nevada, Andalucia", "Barcelona, Catalunia"],
-      credit: "Selected work",
       description: [
         "My first photobook, exploring the space between my father and I.",
       ],
@@ -190,9 +187,11 @@ export const projects: Project[] = [
       ],
     },
   },
-];
+] satisfies Project[];
 
-export function getProject(slug: string): Project {
+export type ProjectSlug = (typeof projects)[number]["slug"];
+
+export function getProject(slug: ProjectSlug): Project {
   const project = projects.find((item) => item.slug === slug);
   if (!project) throw new Error(`Unknown project slug: ${slug}`);
   return project;

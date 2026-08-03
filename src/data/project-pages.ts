@@ -1,9 +1,11 @@
+import type { ProjectSlug } from "./projects";
+
 export const numberedImages = (folder: string, basename: string, count: number) =>
   Array.from({ length: count }, (_, index) => `${folder}/${basename}-${index + 1}.webp`);
 
 export const youtubeEmbedUrl = (videoId: string) => `https://www.youtube.com/embed/${videoId}`;
 
-export const projectGalleryBySlug: Record<string, string[]> = {
+export const projectGalleryBySlug: Partial<Record<ProjectSlug, string[]>> = {
   absordo: numberedImages("/img/projects/absordo", "absordo", 26),
   "artists-in-studio": numberedImages("/img/projects/artists-in-studios", "artists-in-studios", 24),
   "hijo-de-su-padre": numberedImages("/img/projects/hijo-de-su-padre", "hijo-de-su-padre", 16),
@@ -19,7 +21,7 @@ export const projectGalleryBySlug: Record<string, string[]> = {
   portraits: numberedImages("/img/projects/portraits", "portraits", 16),
 };
 
-export const projectVideoIds: Record<string, string[]> = {
+export const projectVideoIds: Partial<Record<ProjectSlug, string[]>> = {
   "fashion-videos": ["dPqsxJvNvM4", "akV9um-nCDk", "Xbv6fLyTXwM", "xb5yZcfUwEg"],
   dancers: [
     "2PiAk67Bngc",
@@ -41,7 +43,7 @@ export const projectVideoIds: Record<string, string[]> = {
   ],
 };
 
-export const topVideoEmbedUrls: Record<string, string> = {
+export const topVideoEmbedUrls: Partial<Record<ProjectSlug, string>> = {
   sync: "https://drive.google.com/file/d/1_EjK8iHk8ulcyTHUlufgoy8yjg5Kwiz7/preview",
   dancers: youtubeEmbedUrl("yiA6AM7aQSY"),
   ironwill: youtubeEmbedUrl("js-8DswUVtc"),
@@ -75,7 +77,10 @@ export const berlinFashionWeekImages = numberedImages(
   20,
 );
 
-export const hijoDeSuPadreFullWidth = [
-  "/img/projects/hijo-de-su-padre/hijo-de-su-padre-9.webp",
-  "/img/projects/hijo-de-su-padre/hijo-de-su-padre-16.webp",
-];
+export const projectGalleryFullWidthBySlug: Partial<Record<ProjectSlug, string[]>> = {
+  "hijo-de-su-padre": [
+    "/img/projects/hijo-de-su-padre/hijo-de-su-padre-9.webp",
+    "/img/projects/hijo-de-su-padre/hijo-de-su-padre-16.webp",
+  ],
+  runaway: ["/img/projects/runaway/runaway-3.webp", "/img/projects/runaway/runaway-6.webp"],
+};

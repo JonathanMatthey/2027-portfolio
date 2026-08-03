@@ -1,0 +1,32 @@
+---
+import ProjectPage from "../layouts/ProjectPage.astro";
+import ProjectGallery from "../components/ProjectGallery.astro";
+import { getProject, projects, type ProjectSlug } from "../data/projects";
+import { projectGalleryBySlug, projectGalleryFullWidthBySlug } from "../data/project-pages";
+
+export function getStaticPaths() {
+  // Projects with a custom layout get their own page under src/pages/ and are excluded here.
+  const customPageSlugs: ProjectSlug[] = [
+    "sync",
+    "ironwill",
+    "cafe-aliou",
+    "berlin-fashion-week",
+    "fashion-videos",
+    "dancers",
+  ];
+
+  return projects
+    .filter((project) => !customPageSlugs.includes(project.slug))
+    .map((project) => ({ params: { slug: project.slug } }));
+}
+
+const project = getProject(Astro.params.slug as ProjectSlug);
+---
+
+<ProjectPage project={project}>
+  <ProjectGallery
+    images={projectGalleryBySlug[project.slug] ?? []}
+    alt={`${project.title} documentation`}
+    fullWidth={projectGalleryFullWidthBySlug[project.slug]}
+  />
+</ProjectPage>

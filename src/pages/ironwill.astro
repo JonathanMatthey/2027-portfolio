@@ -12,7 +12,7 @@ import {
 } from "../data/project-pages";
 
 const project = getProject("ironwill");
-const gallery = projectGalleryBySlug.ironwill;
+const gallery = projectGalleryBySlug.ironwill ?? [];
 const beforeFormat = gallery.slice(0, 1);
 const afterFormat = gallery.slice(1);
 const docAlt = `${project.title} documentation`;

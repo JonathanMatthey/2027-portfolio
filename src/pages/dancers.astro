@@ -8,5 +8,5 @@ const project = getProject("dancers");
 ---
 
 <ProjectPage project={project} topVideoEmbedUrl={topVideoEmbedUrls.dancers} textTight>
-  <ProjectVideoGallery videoIds={projectVideoIds.dancers} title={project.title} />
+  <ProjectVideoGallery videoIds={projectVideoIds.dancers ?? []} title={project.title} />
 </ProjectPage>

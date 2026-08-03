@@ -21,7 +21,6 @@ const nextProject = projects[(currentIndex + 1) % projects.length];
 const projectDate = project.year.includes("-") ? project.year.replace("-", " — ") : project.year;
 const projectDetails = project.details ?? {
   location: ["Project location", "Street address 00,", "City, Country"],
-  credit: "Selected work",
   description: [
     `The project ${project.title} is a placeholder text area for production notes, collaborators, context, and a short statement. ` +
       "This space can hold a longer description in the same rhythm as the reference page: direct, spacious, and text-led, with the image column remaining available for the work itself.",
