@@ -1,0 +1,16 @@
+---
+import ProjectPage from "../layouts/ProjectPage.astro";
+import ProjectGallery from "../components/ProjectGallery.astro";
+import { getProject } from "../data/projects";
+import { hijoDeSuPadreFullWidth, projectGalleryBySlug } from "../data/project-pages";
+
+const project = getProject("hijo-de-su-padre");
+---
+
+<ProjectPage project={project}>
+  <ProjectGallery
+    images={projectGalleryBySlug["hijo-de-su-padre"]}
+    alt={`${project.title} documentation`}
+    fullWidth={hijoDeSuPadreFullWidth}
+  />
+</ProjectPage>

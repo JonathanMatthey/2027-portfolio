@@ -1,0 +1,59 @@
+---
+import ProjectPage from "../layouts/ProjectPage.astro";
+import Picture from "../components/Picture.astro";
+import ProjectFormat from "../components/ProjectFormat.astro";
+import { getProject } from "../data/projects";
+import { syncFormatContent } from "../data/project-formats";
+import {
+  syncArtists,
+  syncFinalWideImages,
+  syncImageRow,
+  syncWideImages,
+  topVideoEmbedUrls,
+} from "../data/project-pages";
+
+const project = getProject("sync");
+const docAlt = `${project.title} documentation`;
+---
+
+<ProjectPage project={project} topVideoEmbedUrl={topVideoEmbedUrls.sync}>
+  <section class="project-wide-media">
+    {syncWideImages.map((image) => (
+      <figure class="project-wide-image-wrapper">
+        <Picture class="project-wide-image" src={image} alt={docAlt} loading={null} />
+      </figure>
+    ))}
+  </section>
+
+  <ProjectFormat {...syncFormatContent} />
+
+  <section class="project-image-row">
+    {syncImageRow.map((image) => (
+      <figure class="project-image-row-wrapper">
+        <Picture class="project-image-row-image" src={image} alt={docAlt} loading={null} />
+      </figure>
+    ))}
+  </section>
+
+  <section class="project-artists">
+    {syncArtists.map((artist) => (
+      <article class="project-artist">
+        <figure class="project-artist-image-wrapper">
+          <Picture class="project-artist-image" src={artist.image} alt={artist.name} />
+        </figure>
+        <div class="project-artist-text">
+          <h3 class="project-artist-name">{artist.name}</h3>
+          <p class="project-artist-bio">{artist.bio}</p>
+        </div>
+      </article>
+    ))}
+  </section>
+
+  <section class="project-wide-media">
+    {syncFinalWideImages.map((image) => (
+      <figure class="project-wide-image-wrapper">
+        <Picture class="project-wide-image" src={image} alt={docAlt} />
+      </figure>
+    ))}
+  </section>
+</ProjectPage>

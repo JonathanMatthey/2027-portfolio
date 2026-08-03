@@ -1,0 +1,13 @@
+---
+import ProjectPage from "../layouts/ProjectPage.astro";
+import GalleryRow from "../components/GalleryRow.astro";
+import { getProject } from "../data/projects";
+import { berlinFashionWeekImages } from "../data/project-pages";
+
+const project = getProject("berlin-fashion-week");
+const docAlt = `${project.title} documentation`;
+---
+
+<ProjectPage project={project}>
+  <GalleryRow images={berlinFashionWeekImages} columns={4} alt={docAlt} />
+</ProjectPage>

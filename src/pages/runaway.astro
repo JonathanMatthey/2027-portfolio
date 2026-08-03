@@ -1,0 +1,19 @@
+---
+import ProjectPage from "../layouts/ProjectPage.astro";
+import ProjectGallery from "../components/ProjectGallery.astro";
+import { getProject } from "../data/projects";
+import { projectGalleryBySlug } from "../data/project-pages";
+
+const project = getProject("runaway");
+---
+
+<ProjectPage project={project}>
+  <ProjectGallery
+    images={projectGalleryBySlug.runaway}
+    alt={`${project.title} documentation`}
+    fullWidth={[
+      "/img/projects/runaway/runaway-3.webp",
+      "/img/projects/runaway/runaway-6.webp",
+    ]}
+  />
+</ProjectPage>

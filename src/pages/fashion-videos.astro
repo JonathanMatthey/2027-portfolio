@@ -1,0 +1,16 @@
+---
+import ProjectPage from "../layouts/ProjectPage.astro";
+import ProjectVideoGallery from "../components/ProjectVideoGallery.astro";
+import { getProject } from "../data/projects";
+import { projectVideoIds, topVideoEmbedUrls } from "../data/project-pages";
+
+const project = getProject("fashion-videos");
+---
+
+<ProjectPage project={project} topVideoEmbedUrl={topVideoEmbedUrls["fashion-videos"]}>
+  <ProjectVideoGallery
+    videoIds={projectVideoIds["fashion-videos"]}
+    title={project.title}
+    verticalVideoIndexes={[0, 1]}
+  />
+</ProjectPage>

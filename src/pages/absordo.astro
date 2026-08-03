@@ -1,0 +1,12 @@
+---
+import ProjectPage from "../layouts/ProjectPage.astro";
+import ProjectGallery from "../components/ProjectGallery.astro";
+import { getProject } from "../data/projects";
+import { projectGalleryBySlug } from "../data/project-pages";
+
+const project = getProject("absordo");
+---
+
+<ProjectPage project={project}>
+  <ProjectGallery images={projectGalleryBySlug.absordo} alt={`${project.title} documentation`} />
+</ProjectPage>

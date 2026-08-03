@@ -1,0 +1,15 @@
+---
+import ProjectPage from "../layouts/ProjectPage.astro";
+import ProjectGallery from "../components/ProjectGallery.astro";
+import { getProject } from "../data/projects";
+import { projectGalleryBySlug } from "../data/project-pages";
+
+const project = getProject("artists-in-studio");
+---
+
+<ProjectPage project={project}>
+  <ProjectGallery
+    images={projectGalleryBySlug["artists-in-studio"]}
+    alt={`${project.title} documentation`}
+  />
+</ProjectPage>

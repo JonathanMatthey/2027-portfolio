@@ -1,0 +1,31 @@
+---
+import ProjectPage from "../layouts/ProjectPage.astro";
+import GalleryRow from "../components/GalleryRow.astro";
+import ProjectFormat from "../components/ProjectFormat.astro";
+import ProjectGallery from "../components/ProjectGallery.astro";
+import { getProject } from "../data/projects";
+import { ironwillBtsContent, ironwillFormatContent } from "../data/project-formats";
+import {
+  ironwillBtsImages,
+  projectGalleryBySlug,
+  topVideoEmbedUrls,
+} from "../data/project-pages";
+
+const project = getProject("ironwill");
+const gallery = projectGalleryBySlug.ironwill;
+const beforeFormat = gallery.slice(0, 1);
+const afterFormat = gallery.slice(1);
+const docAlt = `${project.title} documentation`;
+const btsAlt = `${project.title} behind the scenes`;
+---
+
+<ProjectPage project={project} topVideoEmbedUrl={topVideoEmbedUrls.ironwill}>
+  <ProjectGallery images={beforeFormat} alt={docAlt} fullWidth={beforeFormat} />
+  <ProjectFormat {...ironwillFormatContent} />
+  <GalleryRow images={afterFormat} columns={4} alt={docAlt} />
+
+  <section class="project-bts">
+    <ProjectFormat {...ironwillBtsContent} class="project-bts-intro" />
+    <GalleryRow images={ironwillBtsImages} columns={5} alt={btsAlt} flushTop />
+  </section>
+</ProjectPage>

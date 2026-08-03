@@ -1,0 +1,13 @@
+---
+import ProjectPage from "../layouts/ProjectPage.astro";
+import GalleryRow from "../components/GalleryRow.astro";
+import { getProject } from "../data/projects";
+import { cafeAliouBtsImages, topVideoEmbedUrls } from "../data/project-pages";
+
+const project = getProject("cafe-aliou");
+const btsAlt = `${project.title} behind the scenes`;
+---
+
+<ProjectPage project={project} topVideoEmbedUrl={topVideoEmbedUrls["cafe-aliou"]}>
+  <GalleryRow images={cafeAliouBtsImages} columns={4} alt={btsAlt} />
+</ProjectPage>
