@@ -48,6 +48,17 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   </head>
   <body>
     <slot />
+    <script is:inline>
+      history.scrollRestoration = "manual";
+      const resetScroll = () => {
+        if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+        window.scrollTo(0, 0);
+      };
+      resetScroll();
+      window.addEventListener("pageshow", (event) => {
+        if (event.persisted) resetScroll();
+      });
+    </script>
   </body>
 </html>
 
@@ -114,6 +125,13 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     background: var(--clr-bg);
   }
 
+  @media (hover: none) {
+    html {
+      scroll-behavior: auto;
+      scrollbar-gutter: auto;
+    }
+  }
+
   *,
   *::before,
   *::after {
@@ -135,6 +153,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
   body {
     min-height: 100vh;
+    min-height: 100dvh;
     font-family: "Suisse Intl", "Helvetica Neue", Arial, sans-serif;
     font-size: var(--font-size-s);
     line-height: var(--font-size-s-lh);

@@ -3,6 +3,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   min-height: 100vh;
+  min-height: 100dvh;
 }
 
 .project-column-left {
@@ -459,6 +460,8 @@
 @media (max-width: 720px) {
   .project-page {
     grid-template-columns: 1fr 1fr;
+    min-height: 0;
+    align-content: start;
   }
 
   .project-column-left,
