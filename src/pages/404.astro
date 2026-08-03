@@ -1,0 +1,42 @@
+---
+import Layout from "../layouts/Layout.astro";
+import InfoMenu from "../components/InfoMenu.astro";
+import SiteHeader from "../components/SiteHeader.astro";
+---
+
+<Layout
+  title="Page not found - Jonathan Matthey"
+  description="The requested page could not be found."
+>
+  <main class="not-found">
+    <SiteHeader fixed />
+
+    <section class="not-found-content">
+      <p>Page not found.</p>
+      <a href="/">Return home</a>
+    </section>
+  </main>
+
+  <InfoMenu />
+</Layout>
+
+<style>
+  .not-found {
+    min-height: 100vh;
+    background-color: var(--clr-bg);
+  }
+
+  .not-found-content {
+    max-width: 36rem;
+    padding: calc(var(--header-height, 49px) + var(--spacer) * 4) var(--spacer)
+      var(--spacer);
+    font-size: var(--site-heading-size);
+    line-height: var(--font-size-l-lh);
+  }
+
+  .not-found-content a {
+    display: inline-block;
+    margin-top: 1em;
+    text-decoration: underline;
+  }
+</style>

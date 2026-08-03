@@ -3,15 +3,17 @@ import InfoPanel from "./InfoPanel.astro";
 
 interface Props {
   fixed?: boolean;
+  heading?: boolean;
 }
 
-const { fixed = false } = Astro.props;
+const { fixed = false, heading = true } = Astro.props;
+const Tag = heading ? "h1" : "div";
 ---
 
 <header class:list={["header", fixed && "header-fixed"]}>
-  <h1 class="title">
+  <Tag class="title">
     <a href="/">Jonathan Matthey</a>
-  </h1>
+  </Tag>
 
   <button class="menu" type="button" aria-expanded="false" aria-controls="info-panel">
     info
@@ -49,11 +51,12 @@ const { fixed = false } = Astro.props;
   .title {
     grid-column: 1 / 3;
     padding: var(--site-header-padding);
-    font-family: "Suisse Intl", "Helvetica Neue", Arial, sans-serif;
+    font-family: "Cardinal Classic Long", "Times New Roman", Times, serif;
     font-style: normal;
     font-size: var(--site-heading-size);
-    font-weight: 300;
+    font-weight: 700;
     line-height: var(--font-size-l-lh);
+    text-transform: uppercase;
     text-wrap: balance;
   }
 
@@ -72,11 +75,12 @@ const { fixed = false } = Astro.props;
     grid-column: 3 / 4;
     margin-left: var(--spacer);
     padding: var(--site-header-padding);
-    font-family: "Suisse Intl", "Helvetica Neue", Arial, sans-serif;
+    font-family: "Cardinal Classic Long", "Times New Roman", Times, serif;
     font-size: var(--site-heading-size);
-    font-weight: 300;
+    font-weight: 700;
     line-height: var(--font-size-l-lh);
     text-align: center;
+    text-transform: uppercase;
     color: var(--clr-lines);
     border-left: 1px solid var(--clr-lines);
   }

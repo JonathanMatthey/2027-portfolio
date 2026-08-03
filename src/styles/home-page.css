@@ -129,9 +129,11 @@
 }
 
 .project-divider h2 {
+  font-family: "Cardinal Classic Long", "Times New Roman", Times, serif;
   font-size: var(--site-heading-size);
-  font-weight: 400;
+  font-weight: 700;
   line-height: var(--font-size-l-lh);
+  text-transform: uppercase;
 }
 
 .project-divider-spacer {

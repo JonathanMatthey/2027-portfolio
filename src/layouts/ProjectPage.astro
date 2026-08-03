@@ -26,17 +26,23 @@ const projectDetails = project.details ?? {
       "This space can hold a longer description in the same rhythm as the reference page: direct, spacious, and text-led, with the image column remaining available for the work itself.",
   ],
 };
+
+const rawDescription = projectDetails.description[0]?.replace(/\s+/g, " ").trim();
+const metaDescription =
+  rawDescription && rawDescription.length > 155
+    ? `${rawDescription.slice(0, 155).replace(/\s+\S*$/, "")}…`
+    : rawDescription;
 ---
 
-<Layout title={`${project.title} - Jonathan Matthey`}>
+<Layout title={`${project.title} - Jonathan Matthey`} description={metaDescription}>
   <main class="project-page">
     <div class="project-column-left">
-      <SiteHeader />
+      <SiteHeader heading={false} />
 
       <section class="project-infos">
         <div class="project-meta">
           <div class="project-year">{project.year}</div>
-          <h2 class="project-title">{project.title}</h2>
+          <h1 class="project-title">{project.title}</h1>
           <ProjectCategories categories={project.categories} />
         </div>
 
