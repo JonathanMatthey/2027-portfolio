@@ -258,6 +258,10 @@
     min-height: 0;
   }
 
+  .contact {
+    padding-bottom: calc(var(--spacer) * 6);
+  }
+
   .header + .project-infos {
     margin-top: 0;
   }
