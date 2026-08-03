@@ -1,0 +1,35 @@
+---
+import Picture from "./Picture.astro";
+
+interface Props {
+  images: string[];
+  alt: string;
+  fullWidth?: string[] | ((image: string) => boolean);
+}
+
+const { images, alt, fullWidth } = Astro.props;
+
+const isFullWidth = (image: string) => {
+  if (typeof fullWidth === "function") return fullWidth(image);
+  if (Array.isArray(fullWidth)) return fullWidth.includes(image);
+  return false;
+};
+
+let columnIndex = 0;
+const sideClass = (image: string) => {
+  if (isFullWidth(image)) return "project-gallery-image-full";
+  return columnIndex++ % 2 === 0 ? "project-gallery-image-left" : "project-gallery-image-right";
+};
+---
+
+{
+  images.length > 0 && (
+    <section class="project-gallery">
+      {images.map((image) => (
+        <figure class:list={["project-gallery-image-wrapper", sideClass(image)]}>
+          <Picture class="project-gallery-image" src={image} alt={alt} />
+        </figure>
+      ))}
+    </section>
+  )
+}

@@ -1,0 +1,46 @@
+---
+import type { ProjectFormatContent } from "../data/project-formats";
+
+interface Props extends ProjectFormatContent {
+  class?: string;
+}
+
+const {
+  title,
+  primaryParagraphs,
+  secondaryParagraphs = [],
+  secondarySections = [],
+  secondaryNotes = [],
+  class: className,
+} = Astro.props;
+---
+
+<section class:list={["project-format", className]}>
+  <div class="project-format-primary">
+    <h3>{title}</h3>
+    {primaryParagraphs.map((paragraph) => <p>{paragraph}</p>)}
+  </div>
+
+  <div class="project-format-secondary">
+    {secondaryParagraphs.map((paragraph) => <p>{paragraph}</p>)}
+    {
+      secondarySections.map((section) => (
+        <>
+          <h3>{section.heading}</h3>
+          <ul>
+            {section.items.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+        </>
+      ))
+    }
+    {
+      secondaryNotes.map((note) => (
+        <p>
+          <strong>{note.label}</strong> {note.text}
+        </p>
+      ))
+    }
+  </div>
+</section>

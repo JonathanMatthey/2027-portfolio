@@ -1,0 +1,34 @@
+---
+import { youtubeEmbedUrl } from "../data/project-pages";
+
+interface Props {
+  videoIds: string[];
+  title: string;
+  verticalVideoIndexes?: number[];
+}
+
+const { videoIds, title, verticalVideoIndexes = [] } = Astro.props;
+const verticalVideoIndexSet = new Set(verticalVideoIndexes);
+---
+
+{
+  videoIds.length > 0 && (
+    <section class="project-video-gallery">
+      {videoIds.map((videoId, index) => (
+        <div
+          class="project-video-embed-wrapper"
+          data-orientation={verticalVideoIndexSet.has(index) ? "vertical" : "landscape"}
+        >
+          <iframe
+            class="project-video-embed"
+            src={youtubeEmbedUrl(videoId)}
+            title={`${title} video`}
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+        </div>
+      ))}
+    </section>
+  )
+}

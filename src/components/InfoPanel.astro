@@ -1,0 +1,214 @@
+---
+import Picture from "./Picture.astro";
+---
+
+<aside class="info" id="info-panel" aria-hidden="true">
+  <section class="info-entry info-about">
+    <div class="info-about-wrapper">
+      <div class="info-about-text">
+        <p>
+          Jonathan works across photography, film, and performance, with a
+          focus on the human form and black-and-white portraiture.
+        </p>
+        <p> His work is minimal, direct, grounded in
+          authenticity.
+        </p>
+        <p>
+
+          He is currently developing an exhibition on Barcelona's
+          chatarreros.
+          Working with both digital and analog processes, across Paris, Berlin, and
+          the US.
+        </p>
+      </div>
+      <Picture
+        class="info-avatar"
+        src="/img/projects/jonathan-matthey-avatar.webp"
+        alt="Jonathan Matthey"
+      />
+    </div>
+  </section>
+
+  <div class="info-wrapper">
+    <section class="info-entry info-contact">
+      <a href="mailto:studio@jonathanmatthey.com">studio@jonathanmatthey.com</a>
+    </section>
+
+    <section class="info-entry info-cv">
+      <h3>Solo Exhibitions</h3>
+      <p>2026</p>
+      <ul>
+        <li>
+          <p><em>Absordo</em></p>
+          <p>Galeria Alegria</p>
+        </li>
+      </ul>
+      <p>2025</p>
+      <ul>
+        <li>
+          <p><em>Monocromo</em></p>
+          <p>Studio Pintor</p>
+        </li>
+      </ul>
+
+      <h3>Performance</h3>
+      <p>2026</p>
+      <ul>
+        <li>
+          <p><em>SYNC</em></p>
+          <p>Galeria Alegria</p>
+        </li>
+      </ul>
+
+      <h3>Education</h3>
+      <p>2021</p>
+      <ul>
+        <li><p>Barcelona Academy of Art</p></li>
+      </ul>
+      <p>2007</p>
+      <ul>
+        <li><p>Glasgow School of Art</p></li>
+      </ul>
+    </section>
+  </div>
+</aside>
+
+<style>
+  .info {
+    position: fixed;
+    top: var(--header-height, 49px);
+    left: 0;
+    bottom: 0;
+    z-index: 9;
+    width: 50%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border-right: 1px solid var(--clr-lines);
+    background-color: var(--clr-bg);
+    transform: translate(-110vw, 0);
+    transition: transform 250ms ease-out;
+  }
+
+  .info-show {
+    transform: translate(0, 0);
+  }
+
+  .info h3 {
+    display: block;
+    margin-block: 0;
+    padding: var(--section-padding-top) var(--spacer);
+    color: var(--clr-text-light);
+    font-size: inherit;
+    font-weight: 500;
+    border-top: 1px solid var(--clr-lines);
+    border-bottom: 1px solid var(--clr-lines);
+  }
+
+  .info-about {
+    max-width: 960px;
+    padding: var(--section-padding-top) 0 1rem var(--spacer);
+    font-size: 1.2rem;
+    font-weight: 300;
+    line-height: 1.28;
+  }
+
+  .info-about p + p {
+    margin-top: 1em;
+  }
+
+  .info-about-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 12vw;
+    gap: 0;
+    align-items: start;
+  }
+
+  .info-avatar {
+    display: block;
+    width: 12vw;
+    height: 12vw;
+    margin: calc(var(--section-padding-top) * -1) calc(var(--spacer) * -1) 0 0;
+    object-fit: cover;
+  }
+
+  .info-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+
+  .info-contact {
+    position: sticky;
+    top: -1px;
+    padding: var(--section-padding-top) var(--spacer) var(--spacer);
+    border-top: 1px solid var(--clr-lines);
+  }
+
+  .info-contact address {
+    margin-bottom: 1em;
+  }
+
+  .info-cv {
+    padding-bottom: 1.5em;
+    border-left: 1px solid var(--clr-lines);
+  }
+
+  .info-cv p {
+    max-width: 360px;
+    margin: 1em var(--spacer) 0;
+  }
+
+  .info-cv li {
+    position: relative;
+    padding-left: 1.25em;
+  }
+
+  .info-cv li::before {
+    content: "↦";
+    position: absolute;
+    left: var(--spacer);
+  }
+
+  .info-cv li p {
+    margin-block: 0;
+  }
+
+  .info-cv ul:has(+ h3),
+  .info-cv ul:last-child {
+    margin-bottom: 1.5em;
+  }
+
+  @media (max-width: 720px) {
+    .info {
+      right: 0;
+      width: 100vw;
+    }
+
+    .info-about-text {
+      font-size: 0.95rem;
+    }
+
+    .info-about-wrapper {
+      grid-template-columns: 1fr;
+      gap: 0.55rem;
+    }
+
+    .info-avatar {
+      width: 24vw;
+      height: 24vw;
+    }
+
+    .info-wrapper {
+      grid-template-columns: 1fr;
+    }
+
+    .info-contact {
+      position: relative;
+      padding-bottom: var(--section-padding-top);
+    }
+
+    .info-cv {
+      border-left: 0;
+    }
+  }
+</style>

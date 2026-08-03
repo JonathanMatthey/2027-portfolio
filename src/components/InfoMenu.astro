@@ -1,0 +1,30 @@
+<script>
+  const menu = document.querySelector<HTMLButtonElement>(".menu");
+  const info = document.querySelector<HTMLElement>(".info");
+  const header = document.querySelector<HTMLElement>(".header");
+  const videoModal = document.querySelector<HTMLElement>(".project-video-modal");
+
+  const setHeaderOffset = () => {
+    document.documentElement.style.setProperty(
+      "--header-height",
+      `${header?.offsetHeight ?? 0}px`,
+    );
+  };
+
+  setHeaderOffset();
+  window.addEventListener("resize", setHeaderOffset);
+  document.fonts?.ready.then(setHeaderOffset);
+
+  menu?.addEventListener("click", () => {
+    const isOpen = info?.classList.toggle("info-show") ?? false;
+    menu.classList.toggle("menu-close", isOpen);
+    menu.setAttribute("aria-expanded", String(isOpen));
+    info?.setAttribute("aria-hidden", String(!isOpen));
+
+    if (isOpen) {
+      document.documentElement.style.overflow = "hidden";
+    } else if (videoModal?.dataset.open !== "true") {
+      document.documentElement.style.overflow = "";
+    }
+  });
+</script>
