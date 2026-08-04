@@ -102,12 +102,10 @@ export const projects = [
     image: "/img/projects/absordo/absordo-feature.webp",
     alt: "Jonathan Matthey - Absordo, 2024",
     details: {
-      location: ["Barcelona", "Studio Pintor Tapiro"],
+      location: ["Galeria Alegria", "Barcelona"],
       description: [
-        "Bodies strain, collapse and grasp.",
-        "Fabric clings like fate.",
-        "A hand reaches. A back bends. Someone holds on a little longer than they should.",
-        "The work sits in that moment before release, where effort turns into shape and the body gives away what it cannot say.",
+        "Bodies strain, collapse and grasp.\nFabric clings like fate.",
+        "A solo exhibition of 24 black-and-white prints.",
       ],
     },
   },

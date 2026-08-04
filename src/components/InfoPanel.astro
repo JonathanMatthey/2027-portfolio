@@ -128,9 +128,10 @@ import Picture from "./Picture.astro";
     display: block;
     grid-column: 2;
     grid-row: 1 / span 3;
-    width: 100%;
+    width: calc(100% - var(--spacer));
     aspect-ratio: 1;
     object-fit: cover;
+    margin-right: var(--spacer);
   }
 
   .info-wrapper {
