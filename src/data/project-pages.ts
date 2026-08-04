@@ -21,6 +21,37 @@ export const projectGalleryBySlug: Partial<Record<ProjectSlug, string[]>> = {
   portraits: numberedImages("/img/projects/portraits", "portraits", 16),
 };
 
+/** Optional caption under each gallery image (same order as projectGalleryBySlug). */
+export const projectGalleryCaptionsBySlug: Partial<Record<ProjectSlug, string[]>> = {
+  "artists-in-studio": [
+    // Order matches artists-in-studios-1 … artists-in-studios-24
+    "Derek Weisberg",
+    "Cydney Lewis",
+    "Justin Ware",
+    "Felipe Pincel",
+    "Himeka Murai",
+    "Cydney Lewis",
+    "Marc Teixido",
+    "Hue Thi Hoffmaster",
+    "Enric Sant",
+    "Chidy Wayne",
+    "Sebastian Leon",
+    "Felipe Pincel",
+    "Oscar Duran",
+    "Fidel Evora",
+    "Veronika Moskaleva",
+    "Derek Weisberg",
+    "Javier De Mendoza",
+    "Victor Castillo",
+    "Dana James",
+    "Hannah Murray",
+    "Aryz",
+    "Yulia Bas",
+    "Gianfranco La Cognata",
+    "Eudald de Juana",
+  ],
+};
+
 export const projectVideoIds: Partial<Record<ProjectSlug, string[]>> = {
   "fashion-videos": ["dPqsxJvNvM4", "akV9um-nCDk", "Xbv6fLyTXwM", "xb5yZcfUwEg"],
   dancers: [

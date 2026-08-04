@@ -4,10 +4,12 @@ import Picture from "./Picture.astro";
 interface Props {
   images: string[];
   alt: string;
+  /** Optional labels under each image (same order as `images`). Empty strings are skipped. */
+  captions?: string[];
   fullWidth?: string[] | ((image: string) => boolean);
 }
 
-const { images, alt, fullWidth } = Astro.props;
+const { images, alt, captions, fullWidth } = Astro.props;
 
 const isFullWidth = (image: string) => {
   if (typeof fullWidth === "function") return fullWidth(image);
@@ -25,11 +27,21 @@ const sideClass = (image: string) => {
 {
   images.length > 0 && (
     <section class="project-gallery">
-      {images.map((image) => (
-        <figure class:list={["project-gallery-image-wrapper", sideClass(image)]}>
-          <Picture class="project-gallery-image" src={image} alt={alt} />
-        </figure>
-      ))}
+      {images.map((image, index) => {
+        const caption = captions?.[index]?.trim();
+        return (
+          <figure class:list={["project-gallery-image-wrapper", sideClass(image)]}>
+            <div class="project-gallery-frame">
+              <Picture
+                class="project-gallery-image"
+                src={image}
+                alt={caption ? `${caption} — ${alt}` : alt}
+              />
+              {caption && <figcaption class="project-gallery-caption">{caption}</figcaption>}
+            </div>
+          </figure>
+        );
+      })}
     </section>
   )
 }

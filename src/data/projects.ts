@@ -34,6 +34,23 @@ export const projects = [
     },
   },
   {
+    year: "2026",
+    title: "Berlin Fashion Week",
+    shortTitle: "BFW",
+    slug: "berlin-fashion-week",
+    categories: ["Photographer"],
+    image: "/img/projects/berlin-fashion-week/berlin-fashion-week-feature.webp",
+    homepageImage: "/img/projects/berlin-fashion-week/berlin-fashion-week-polaroids.webp",
+    alt: "Jonathan Matthey - Berlin Fashion Week, 2026",
+    details: {
+      location: ["Berlin"],
+      description: [
+        "Behind-the-scenes Polaroids taken across fashion week events, capturing the atmosphere around shows, fittings, presentations and backstage moments.",
+        "The Polaroids were given directly to the designers and models after the shoot.",
+      ],
+    },
+  },
+  {
     year: "2025 - WIP",
     title: "IRONWILL",
     slug: "ironwill",
@@ -115,21 +132,10 @@ export const projects = [
     categories: ["Exhibition", "Photographer"],
     image: "/img/projects/artists-in-studios/artists-in-studio-feature.webp",
     alt: "Jonathan Matthey - Artists in Studio, 2022 - ...",
-  },
-  {
-    year: "2026",
-    title: "Berlin Fashion Week",
-    shortTitle: "BFW",
-    slug: "berlin-fashion-week",
-    categories: ["Photographer"],
-    image: "/img/projects/berlin-fashion-week/berlin-fashion-week-feature.webp",
-    homepageImage: "/img/projects/berlin-fashion-week/berlin-fashion-week-polaroids.webp",
-    alt: "Jonathan Matthey - Berlin Fashion Week, 2026",
     details: {
-      location: ["Berlin"],
+      location: ["LA", "Chicago", "New York", "Barcelona"],
       description: [
-        "Behind-the-scenes Polaroids taken across fashion week events, capturing the atmosphere around shows, fittings, presentations and backstage moments.",
-        "The Polaroids were given directly to the designers and models after the shoot.",
+        "“When you start working, everybody is in your studio — the past, your friends, enemies, the art world, and above all, your own ideas — all are there. But as you continue painting, they start leaving, one by one, and you are left completely alone. Then, if you are lucky, even you leave.”\n— Philip Guston (after John Cage)",
       ],
     },
   },
