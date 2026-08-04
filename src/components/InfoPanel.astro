@@ -11,18 +11,14 @@ import Picture from "./Picture.astro";
         alt="Jonathan Matthey"
       />
       <p>
-        Jonathan works across photography, film, and performance, with a
-        focus on the human form and black-and-white portraiture.
+        Jonathan works across photography, film, and performance, with a focus
+        on the human form and black-and-white portraiture.
       </p>
-      <p> His work is minimal, direct, grounded in
-        authenticity.
-      </p>
+      <p>His work is minimal, direct, grounded in authenticity.</p>
       <p>
-
-        He is currently developing an exhibition on Barcelona's
-        chatarreros.
-        Working with both digital and analog processes, across Paris, Berlin, and
-        the US.
+        He is currently developing an exhibition on Barcelona's chatarreros.
+        Working with both digital and analog processes, across Paris, Berlin,
+        and US.
       </p>
     </div>
   </section>
@@ -86,7 +82,9 @@ import Picture from "./Picture.astro";
     transform: translate3d(-100%, 0, 0);
     visibility: hidden;
     pointer-events: none;
-    transition: transform 250ms ease-out, visibility 250ms ease-out;
+    transition:
+      transform 250ms ease-out,
+      visibility 250ms ease-out;
   }
 
   .info-show {
@@ -188,9 +186,13 @@ import Picture from "./Picture.astro";
       border-right: 0;
     }
 
+    .info-about {
+      padding: 0.55rem 0.5rem 0.55rem var(--spacer);
+    }
+
     .info-about-text {
       display: block;
-      font-size: 0.95rem;
+      font-size: 1.05rem;
     }
 
     .info-about p + p {
@@ -201,21 +203,35 @@ import Picture from "./Picture.astro";
       grid-column: auto;
       grid-row: auto;
       float: right;
-      width: clamp(4rem, 18vw, 5.5rem);
+      width: clamp(calc(5rem - 2px), calc(22vw - 2px), calc(6.5rem - 2px));
       margin-left: calc(var(--spacer) * 2);
+      margin-right: 0;
     }
 
     .info-wrapper {
       grid-template-columns: 1fr;
     }
 
-    .info-contact {
+    .info-wrapper .info-contact {
       position: relative;
-      padding-bottom: var(--section-padding-top);
+      padding: 0.55rem 0.5rem 0.55rem;
     }
 
-    .info-cv {
+    .info-wrapper .info-cv {
       border-left: 0;
+      padding-bottom: 0.75em;
+    }
+
+    .info-wrapper h3 {
+      padding: 0.55rem 0.5rem;
+    }
+
+    .info-wrapper .info-cv p {
+      margin: 0.65em 0.5rem 0;
+    }
+
+    .info-wrapper .info-cv li::before {
+      left: 0.5rem;
     }
   }
 </style>
