@@ -43,9 +43,9 @@ export const projects = [
     homepageImage: "/img/projects/berlin-fashion-week/berlin-fashion-week-polaroids.webp",
     alt: "Jonathan Matthey - Berlin Fashion Week, 2026",
     details: {
-      location: ["Berlin"],
+      date: "",
       description: [
-        "Behind-the-scenes Polaroids taken across fashion week events, capturing the atmosphere around shows, fittings, presentations and backstage moments.",
+        "Behind-the-scenes Polaroids taken across fashion week events, capturing the atmosphere around shows, fittings and backstage moments.",
         "The Polaroids were given directly to the designers and models after the shoot.",
       ],
     },
@@ -88,6 +88,7 @@ export const projects = [
     image: "/img/projects/on-the-mat/on-the-mat-feature.webp",
     alt: "Jonathan Matthey - On The Mat, 2025",
     details: {
+      date: "",
       location: ["Aranha Jiujitsu Gym", "Barcelona"],
       description: [
         "No performance. No posing.\nBodies testing limits.\nThe silence after training\nafter it's been stripped.",
@@ -102,6 +103,7 @@ export const projects = [
     image: "/img/projects/absordo/absordo-feature.webp",
     alt: "Jonathan Matthey - Absordo, 2024",
     details: {
+      date: "13.06.2026",
       location: ["Galeria Alegria", "Barcelona"],
       description: [
         "Bodies strain, collapse and grasp.\nFabric clings like fate.",
@@ -117,7 +119,8 @@ export const projects = [
     image: "/img/projects/hijo-de-su-padre/hijo-de-su-padre-feature.webp",
     alt: "Jonathan Matthey - Hijo De Su Padre, 2022",
     details: {
-      location: ["Sierra Nevada, Andalucia", "Barcelona, Catalunia"],
+      date: "",
+      location: ["Sierra Nevada, Andalucia"],
       description: [
         "My first photobook, exploring the space between my father and I.",
       ],
@@ -131,6 +134,7 @@ export const projects = [
     image: "/img/projects/artists-in-studios/artists-in-studio-feature.webp",
     alt: "Jonathan Matthey - Artists in Studio, 2022 - ...",
     details: {
+      date: "",
       location: ["LA", "Chicago", "New York", "Barcelona"],
       description: [
         "“When you start working, everybody is in your studio — the past, your friends, enemies, the art world, and above all, your own ideas — all are there. But as you continue painting, they start leaving, one by one, and you are left completely alone. Then, if you are lucky, even you leave.”\n— Philip Guston (after John Cage)",
@@ -145,9 +149,10 @@ export const projects = [
     image: "/img/projects/fashion-videos-feature.webp",
     alt: "Jonathan Matthey - Fashion Videos, 2025-2026",
     details: {
+      date: "",
       location: ["Barcelona", "Berlin", "Paris"],
       description: [
-        "“Fashion is very important. It is life-enhancing and, like everything that gives pleasure, it is worth doing well.”\n— Vivienne Westwood",
+        "Stillness and motion.\nCinematic.\nI used to treat fashion videos mostly as experiments.\nNow I am working toward something deeper: scripts, actors, performance.\nNot just pretty frames that disappear the moment they arrive.\nMake the viewer actually feel something.\n\nNot there yet.",
       ],
     },
   },
@@ -159,8 +164,11 @@ export const projects = [
     image: "/img/projects/runaway/runaway-feature.webp",
     alt: "Jonathan Matthey - Runaway, 2024",
     details: {
+      date: "",
       location: ["Sierra Nevada"],
-      description: [],
+      description: [
+        "No map.\nJust the road\nand whatever comes after it.",
+      ],
     },
   },
   {
@@ -171,6 +179,7 @@ export const projects = [
     image: "/img/projects/dancers-feature.webp",
     alt: "Jonathan Matthey - Dancers, 2023",
     details: {
+      date: "",
       location: ["Project location", "New York, LA, Barcelona"],
       description: [
         "Body, breath, motion",
@@ -186,6 +195,7 @@ export const projects = [
     image: "/img/projects/portraits/portraits-feature.webp",
     alt: "Jonathan Matthey - Portraits, ongoing",
     details: {
+      date: "",
       description: [
         "Black-and-white portraiture has always been my core.\nThese are tests from over the years — not great, but evolving.\nAs the work improves I remove the ones that no longer speak to me, aiming for something timeless.", "Not there yet.",
       ],

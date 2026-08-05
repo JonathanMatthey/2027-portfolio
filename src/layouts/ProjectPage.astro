@@ -47,7 +47,11 @@ const metaDescription =
         </div>
 
         <div class:list={["project-text", { "project-text-tight": textTight }]}>
-          <p>{projectDetails.date ?? projectDate}</p>
+          {
+            projectDetails.date !== "" && (
+              <p>{projectDetails.date ?? projectDate}</p>
+            )
+          }
 
           {
             !!projectDetails.location?.length && (

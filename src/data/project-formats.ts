@@ -81,3 +81,10 @@ export const ironwillBtsContent: ProjectFormatContent = {
     "The work called for long observation, learning the culture, traveling to Senegal, understanding the men and their lives. Trust had to be earned in places where being seen can carry a cost.",
   ],
 };
+
+export const berlinFashionWeekSharedContent: ProjectFormatContent = {
+  title: "Shared",
+  primaryParagraphs: [
+    "I give the polaroids away to the models and designers, they make for great instagram content.",
+  ],
+};

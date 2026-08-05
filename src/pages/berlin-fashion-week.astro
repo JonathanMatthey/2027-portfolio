@@ -1,8 +1,14 @@
 ---
 import ProjectPage from "../layouts/ProjectPage.astro";
 import GalleryRow from "../components/GalleryRow.astro";
+import Picture from "../components/Picture.astro";
+import ProjectFormat from "../components/ProjectFormat.astro";
 import { getProject } from "../data/projects";
-import { berlinFashionWeekImages } from "../data/project-pages";
+import { berlinFashionWeekSharedContent } from "../data/project-formats";
+import {
+  berlinFashionWeekImages,
+  berlinFashionWeekInstagramPosts,
+} from "../data/project-pages";
 
 const project = getProject("berlin-fashion-week");
 const docAlt = `${project.title} documentation`;
@@ -10,4 +16,57 @@ const docAlt = `${project.title} documentation`;
 
 <ProjectPage project={project}>
   <GalleryRow images={berlinFashionWeekImages} columns={4} alt={docAlt} />
+
+  <ProjectFormat {...berlinFashionWeekSharedContent} />
+
+  <section class="project-instagram" aria-label="Instagram shares">
+    <div class="project-instagram-grid">
+      {
+        berlinFashionWeekInstagramPosts.map((post) => (
+          <article class="project-instagram-post">
+            <header class="project-instagram-header">
+              <a
+                class="project-instagram-profile"
+                href={post.profileUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <Picture
+                  class="project-instagram-avatar"
+                  src={post.avatar}
+                  alt={`${post.username} profile picture`}
+                />
+                <span class="project-instagram-meta">
+                  <span class="project-instagram-username">{post.username}</span>
+                  <span class="project-instagram-followers">{post.followers}</span>
+                </span>
+              </a>
+              <a
+                class="project-instagram-view"
+                href={post.url}
+                target="_blank"
+                rel="noreferrer"
+              >
+                View on Instagram
+              </a>
+            </header>
+
+            <a
+              class="project-instagram-link"
+              href={post.url}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={`Open Instagram post by ${post.username}`}
+            >
+              <Picture
+                class="project-instagram-image"
+                src={post.image}
+                alt={`Instagram post by ${post.username} sharing a Berlin Fashion Week Polaroid`}
+              />
+            </a>
+          </article>
+        ))
+      }
+    </div>
+  </section>
 </ProjectPage>

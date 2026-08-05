@@ -175,18 +175,18 @@
 .project-format {
   font-size: var(--font-size-s);
   line-height: 1.28;
-}
-
-.project-format-primary,
-.project-format-secondary {
-  max-width: 38rem;
+  gap: calc(var(--spacer) * 4);
 }
 
 .project-format-primary {
+  max-width: none;
+  min-width: 0;
   padding-left: calc(12.5% + var(--spacer));
 }
 
 .project-format-secondary {
+  max-width: none;
+  min-width: 0;
   padding-right: calc(12.5% + var(--spacer));
 }
 
@@ -356,6 +356,114 @@
   border-top: 0;
 }
 
+.project-instagram {
+  grid-column: 1 / -1;
+  background-color: var(--clr-gallery-bg);
+}
+
+.project-instagram-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacer);
+  padding: var(--spacer);
+}
+
+.project-instagram-post {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  min-width: 0;
+  background-color: var(--clr-bg);
+  overflow: hidden;
+}
+
+.project-instagram-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.7rem 0.75rem;
+}
+
+.project-instagram-profile {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  min-width: 0;
+  text-decoration: none;
+  color: var(--clr-text);
+}
+
+.project-instagram-profile:hover {
+  background-color: transparent;
+}
+
+.project-instagram-avatar {
+  display: block;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.project-instagram-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2em;
+  min-width: 0;
+  line-height: 1.2;
+}
+
+.project-instagram-username {
+  font-size: 0.85rem;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.project-instagram-followers {
+  font-size: 0.72rem;
+  font-weight: 300;
+  color: rgb(50 50 50);
+}
+
+.project-instagram-view {
+  flex-shrink: 0;
+  font-size: 0.72rem;
+  font-weight: 400;
+  color: var(--clr-text-light);
+  text-decoration: underline;
+  text-underline-offset: 0.16em;
+  white-space: nowrap;
+}
+
+.project-instagram-view:hover {
+  color: var(--clr-text);
+  background-color: transparent;
+}
+
+.project-instagram-link {
+  display: block;
+  overflow: hidden;
+  background-color: var(--clr-bg-hover);
+  text-decoration: none;
+}
+
+.project-instagram-link:hover {
+  background-color: transparent;
+}
+
+.project-instagram-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
 .project-gallery-image {
   display: block;
   max-width: 100%;
@@ -505,6 +613,7 @@
   .project-artists,
   .project-video-gallery,
   .project-bts,
+  .project-instagram,
   .project-gallery,
   .gallery-row,
   .project-nav {
@@ -547,10 +656,17 @@
   .project-artists,
   .project-video-gallery,
   .project-bts,
+  .project-instagram,
   .project-gallery,
   .gallery-row,
   .project-nav {
     order: 5;
+  }
+
+  .project-instagram-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacer);
+    padding: var(--spacer);
   }
 
   .project-gallery {

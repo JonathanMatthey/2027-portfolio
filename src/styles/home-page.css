@@ -298,6 +298,7 @@
 
   .project-categories {
     font-size: 0.7rem;
+    align-self: center;
   }
 
   .project-title {

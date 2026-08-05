@@ -53,7 +53,7 @@ export const projectGalleryCaptionsBySlug: Partial<Record<ProjectSlug, string[]>
 };
 
 export const projectVideoIds: Partial<Record<ProjectSlug, string[]>> = {
-  "fashion-videos": ["dPqsxJvNvM4", "akV9um-nCDk", "Xbv6fLyTXwM", "xb5yZcfUwEg"],
+  "fashion-videos": ["gDG_1TbkxAA", "akV9um-nCDk", "Xbv6fLyTXwM", "xb5yZcfUwEg"],
   dancers: [
     "2PiAk67Bngc",
     "TwY5JNJACrQ",
@@ -105,8 +105,44 @@ export const cafeAliouBtsImages = numberedImages("/img/projects/cafe-aliou", "ca
 export const berlinFashionWeekImages = numberedImages(
   "/img/projects/berlin-fashion-week",
   "berlin-fashion-week",
-  20,
+  16,
 );
+
+/** Model/designer Instagram posts sharing the Polaroids unprompted. */
+export const berlinFashionWeekInstagramPosts = [
+  {
+    username: "maartjeconvens",
+    followers: "75.4K followers",
+    avatar: "/img/projects/berlin-fashion-week/insta-profile-1.webp",
+    image: "/img/projects/berlin-fashion-week/bfw-insta1.webp",
+    url: "https://www.instagram.com/p/Daf2PllCAmE/?img_index=8",
+    profileUrl: "https://www.instagram.com/maartjeconvens/",
+  },
+  {
+    username: "barbara.shilova",
+    followers: "63.7K followers",
+    avatar: "/img/projects/berlin-fashion-week/insta-profile-2.webp",
+    image: "/img/projects/berlin-fashion-week/bfw-insta2.webp",
+    url: "https://www.instagram.com/p/DY69Q0XjS3S/?img_index=10",
+    profileUrl: "https://www.instagram.com/barbara.shilova/",
+  },
+  {
+    username: "julietagraciaf",
+    followers: "28.9K followers",
+    avatar: "/img/projects/berlin-fashion-week/insta-profile-3.webp",
+    image: "/img/projects/berlin-fashion-week/bfw-insta3.webp",
+    url: "https://www.instagram.com/p/DJPRp97MxrY/?img_index=1",
+    profileUrl: "https://www.instagram.com/julietagraciaf/",
+  },
+  {
+    username: "activeshaden",
+    followers: "8,564 followers",
+    avatar: "/img/projects/berlin-fashion-week/insta-profile-4.webp",
+    image: "/img/projects/berlin-fashion-week/bfw-insta4.webp",
+    url: "https://www.instagram.com/p/DbIogRQkktL/?img_index=6",
+    profileUrl: "https://www.instagram.com/activeshaden/",
+  },
+];
 
 export const projectGalleryFullWidthBySlug: Partial<Record<ProjectSlug, string[]>> = {
   "hijo-de-su-padre": [
